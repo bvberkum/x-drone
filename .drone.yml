@@ -2,9 +2,5 @@ pipeline:
   shell:
     image: bvberkum/alpine-bats-dev:3.6
     commands:
-     - env
-     - cd $DRONE_WORKSPACE && bats test/*-spec.bats
-#    environment:
-#     - X_DCKR_APK='git'
-#    volumes:
-#     - $DRONE_WORKSPACE:/project
+     - cd $DRONE_WORKSPACE
+     - bats test/*-spec.bats
