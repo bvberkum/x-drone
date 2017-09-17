@@ -1,4 +1,8 @@
 pipeline:
   shell:
-    image: ccfoss/drone-test
-    default_tests: test/*-spec.bats
+    image: bvberkum/alpine-bats-dev:3.6
+    volumes:
+     - .:/project
+    commands: test/*-spec.bats
+    environment:
+     - X_DCKR_APK='git'
