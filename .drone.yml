@@ -7,8 +7,9 @@ pipeline:
      - git clone git@github.com:bvberkum/x-drone.git
      - cd x-drone
      - bats test/*-spec.bats
-    environment: #[]
+    environment:
      - X_DCKR_APK='git'
+     #[]
     #
     #
     # /drone/src/github.com/bvberkum/x-drone/commit/0a56ee9179df7c3d80d24a49f39a27ad10fe1924/
