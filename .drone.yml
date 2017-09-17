@@ -4,6 +4,7 @@ pipeline:
     #volumes:
     # - .:/project
     commands:
+     - env
      - git clone git@github.com:bvberkum/x-drone.git
      - cd x-drone
      - bats test/*-spec.bats
