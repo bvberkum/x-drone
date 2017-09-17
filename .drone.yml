@@ -4,5 +4,5 @@ pipeline:
     volumes:
      - .:/project
     commands: test/*-spec.bats
-    environment:
-     - X_DCKR_APK='git'
+    environment: []
+    # - X_DCKR_APK='git'
