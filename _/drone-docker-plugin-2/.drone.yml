@@ -1,0 +1,26 @@
+workspace:
+    base: /srv
+    path: docker-volumes-local/x-drone-acme
+
+pipeline:
+
+  build:
+    image: alpine:edge
+    commands:
+    - printf -- "#!/bin/sh\n\"\$@\"">/exe && chmod +x /exe
+    - echo "That's all folks!"
+
+  commit:
+    image: bvberkum/alpine-docker:edge
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+    - docker commit drone_step_0 acme:build-step
+    - docker run --entrypoint /exe --name acme_build acme:build-step echo "That's all folks!"
+    - docker commit acme_build acme:build-2
+    - docker rm acme_build
+    #- |
+    #    for tag in build latest; do \
+    #      docker tag acme:$$tag sandbox-3:5000/acme:$$tag; \
+    #      docker push sandbox-3:5000/acme:$$tag; \
+    #    done

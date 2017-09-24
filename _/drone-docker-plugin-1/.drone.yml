@@ -1,0 +1,16 @@
+workspace:
+    base: /srv
+    path: docker-volumes-local/x-drone-acme
+
+pipeline:
+
+  build:
+    image: plugins/docker
+    insecure: true
+    squash: true
+    registry: http://sandbox-3:5000
+    repo: sandbox-3:5000/acme
+    tags:
+      - latest
+      - build
+
