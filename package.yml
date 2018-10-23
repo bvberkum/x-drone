@@ -1,7 +1,7 @@
 
-- type: application/vnd.dotmpe.project
+- type: application/vnd.org.wtwta.project
   id: bvberkum/x-drone
-  env: ENV_NAME=.. . ./env.sh
+  env: ENV_NAME=x-drone . ./env.sh
   scripts:
 
     build-1:
